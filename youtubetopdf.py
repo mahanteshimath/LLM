@@ -18,15 +18,23 @@ st.set_page_config(
   layout="wide",
   initial_sidebar_state="expanded",
 ) 
-
-AssemblyAI_key = st.sidebar.text_input("AssemblyAI api key", type="password")
-
+with st.sidebar:
+        AssemblyAI_key = st.sidebar.text_input("AssemblyAI api key", type="password")
+        st.markdown("""STEP1 : Input Api Key""")
+        st.markdown("""STEP2 : C&P youtube urls with ; take from you tube.""")
+        st.markdown("""Format should be as below. More url more time it takes""")
+        st.markdown("""https://www.youtube.com/watch?v=Vy8rPBq6G00;
+                       https://www.youtube.com/watch?v=lwMyYKHabxQ;
+                       https://www.youtube.com/watch?v=Vy8rPBq6G00;
+                       https://www.youtube.com/watch?v=FaHQvA5JLO4;""")
+        st.markdown("""STEP3 : Press Ctrl+Enter all thumnails will appear""")
+        st.markdown("""STEP4 : You can click on any thumnail respective audio you can see also transcript will be generated.""")
 
 upload_endpoint = "https://api.assemblyai.com/v2/upload"
 transcript_endpoint = "https://api.assemblyai.com/v2/transcript"
 
 headers = {
-    "authorization": AssemblyAI_key,#"b54bcd59bab84aa4be26d76a80d405c",
+    "authorization": AssemblyAI_key,
     "content-type": "application/json"
 }
 
@@ -127,10 +135,6 @@ def get_analysis_results(polling_endpoint):
             break
 
 st.title("YouTube Video to PDF converter")
-st.markdown("All you have to do is to paste a list of links and you will get a list of thumbnails. Once you select a video by clicking its thumbnail, you can view:")
-st.markdown('''Yotube link format should be: https://www.youtube.com/watch?v=lwMyYKHabxQ;
-            https://www.youtube.com/watch?v=lwMyYKHabxQ&t=57s&ab_channel=TheHindu and not https://youtu.be/lwMyYKHabxQ''')
-
 file = st.text_area("Input url separated by ; then press ctrl+enter",height=100)
 urls_list=[q.strip() for q in file.split(';') if q.strip()]
 if file is not None:
@@ -192,9 +196,13 @@ if file is not None:
                 pdf.output(pdf_file)
                 st.success("PDF generated successfully!")
                 pdf_path = Path(pdf_file)
-                st.markdown(pdf_path)
-                st.markdown(pdf_file)
-                st.markdown(f"[Download PDF]({pdf_path})")
+                st.markdown("If you want to download right click and save as")
+                #for pdf_file in pdf_file:
+                with open(pdf_path, "rb") as f:
+                        base64_pdf = base64.b64encode(f.read()).decode("utf-8")
+                        pdf_display = F'<iframe src="data:application/pdf;base64,\
+                        {base64_pdf}" width="700" height="200" type="application/pdf"></iframe>'
+                        st.markdown(pdf_display, unsafe_allow_html=True)
 
                 #base64_pdf = base64.b64encode(pdf_path.read_bytes()).decode("utf-8")
                 #pdf_display = f"""

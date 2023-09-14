@@ -200,8 +200,8 @@ if file is not None:
                 #for pdf_file in pdf_file:
                 with open(pdf_path, "rb") as f:
                         base64_pdf = base64.b64encode(f.read()).decode("utf-8")
-                        pdf_display = F'<iframe src="data:application/pdf;base64,\
-                        {base64_pdf}" width="700" height="200" type="application/pdf"></iframe>'
+                        pdf_display = f"""<iframe src="data:application/pdf;base64,\
+                        {base64_pdf}" width="700" height="200" type="application/pdf"></iframe>"""
                         st.markdown(pdf_display, unsafe_allow_html=True)
 
                 #base64_pdf = base64.b64encode(pdf_path.read_bytes()).decode("utf-8")

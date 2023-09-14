@@ -192,7 +192,9 @@ if file is not None:
                 pdf.output(pdf_file)
                 st.success("PDF generated successfully!")
                 pdf_path = Path(pdf_file)
-                st.markdown(f"[Download PDF]({pdf_path},{pdf_file})")
+                st.markdown(pdf_path)
+                st.markdown(pdf_file)
+                st.markdown(f"[Download PDF]({pdf_path}/{pdf_file})")
 
                 #base64_pdf = base64.b64encode(pdf_path.read_bytes()).decode("utf-8")
                 #pdf_display = f"""

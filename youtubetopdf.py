@@ -22,11 +22,11 @@ with st.sidebar:
         AssemblyAI_key = st.sidebar.text_input("AssemblyAI api key", type="password")
         st.markdown("""STEP1 : Input Api Key""")
         st.markdown("""STEP2 : C&P youtube urls with ; take from you tube.""")
-        st.markdown("""Format should be as below. More url more time it takes""")
-        st.markdown("""https://www.youtube.com/watch?v=Vy8rPBq6G00;
-                       https://www.youtube.com/watch?v=lwMyYKHabxQ;
-                       https://www.youtube.com/watch?v=Vy8rPBq6G00;
-                       https://www.youtube.com/watch?v=FaHQvA5JLO4;""")
+        st.markdown("""Format should be as below(notice watch?v=). More url more time it takes""")
+        st.markdown("""https://www.youtube.com/watch?v=fDE1e8sQA7I;
+                       https://www.youtube.com/watch?v=TmAO9jBqJf4;
+                       https://www.youtube.com/watch?v=p3HHBQ-chN4;
+                       https://www.youtube.com/watch?v=6Mya4C3Yr7I;""")
         st.markdown("""STEP3 : Press Ctrl+Enter all thumnails will appear""")
         st.markdown("""STEP4 : You can click on any thumnail respective audio you can see also transcript will be generated.""")
 
@@ -184,15 +184,10 @@ if file is not None:
                 summary = results.json()['text']
                 bullet_points = results.json()['summary']
                 st.markdown("Complete transcription  of youtube video")
-                st.markdown("If you want to download as .pdf select below content and ctrl+P ")
+                st.markdown("If you want to download as .pdf select below content and ctrl+P and save ")
                 st.markdown(
                     f'<iframe srcdoc="{summary}" width="100%" height="300px"></iframe>',
                     unsafe_allow_html=True
                     )
                 st.header("Video summary ")
                 st.write(bullet_points)
-
-
-
-
-                

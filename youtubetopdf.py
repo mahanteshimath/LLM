@@ -124,8 +124,8 @@ def get_analysis_results(polling_endpoint):
             return False
             break
 
-st.title("YouTube Video to blogpost converter")
-st.markdown("With this app you can generated blog post with youtube urls. All you have to do is to paste a list of links and you will get a list of thumbnails. Once you select a video by clicking its thumbnail, you can view:")
+st.title("YouTube Video to PDF converter")
+st.markdown("All you have to do is to paste a list of links and you will get a list of thumbnails. Once you select a video by clicking its thumbnail, you can view:")
 st.markdown('''Yotube link format should be: https://www.youtube.com/watch?v=lwMyYKHabxQ;
             https://www.youtube.com/watch?v=lwMyYKHabxQ&t=57s&ab_channel=TheHindu and not https://youtu.be/lwMyYKHabxQ''')
 

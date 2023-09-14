@@ -205,6 +205,15 @@ if file is not None:
                         st.markdown(pdf_display, unsafe_allow_html=True)
                 st.markdown(f"[Download PDF](data:application/pdf;base64/{base64_pdf})")
 
+                st.write("Summary Text:")
+                st.markdown(
+                f'<iframe srcdoc="{summary}" width="100%" height="300px"></iframe>',
+                unsafe_allow_html=True
+                )
+                st.write("Click below to print the summary:")
+                st.button("Print", key="print_button", on_click="window.print();")
+
+
                 #base64_pdf = base64.b64encode(pdf_path.read_bytes()).decode("utf-8")
                 #pdf_display = f"""
                 #                <iframe src="data:application/pdf;base64,{base64_pdf}" width="800px" height="2100px" type="application/pdf"></iframe>

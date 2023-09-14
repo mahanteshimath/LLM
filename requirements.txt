@@ -1,0 +1,9 @@
+pytube
+streamlit
+os
+requests
+datetime
+assemblyai
+click
+fpdf
+markdown

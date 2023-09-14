@@ -1,9 +1,6 @@
 
 # TheCruxOfYoutube
 
-## What's special about this app?
-You can execute parallel queries in a single query window.
-
 ## Getting Started
 
   1. [App link](https://youtubetopdf.streamlit.app/)

@@ -1,9 +1,6 @@
-# YouTube to PDF Converter
-
-Convert YouTube video content into PDF documents with audio transcription and summarization.
 
 # TheCruxOfYoutube
-   ![Alt Text](https://www.youtube.com/watch?v=HLHT0bQ6mr0&ab_channel=Atozaboutdata)
+
 ## What's special about this app?
 You can execute parallel queries in a single query window.
 

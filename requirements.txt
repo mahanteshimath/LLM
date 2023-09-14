@@ -1,5 +1,6 @@
 streamlit
-pytube
-assemblyai
-fpdf
-markdown
+st_clickable_images
+pytube 
+requests 
+fpdf 
+datetime

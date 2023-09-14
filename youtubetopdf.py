@@ -188,8 +188,11 @@ if file is not None:
                 yyyymmddhhmmss = now.strftime('%Y%m%d%H%M%S')
                 pdf_file = yyyymmddhhmmss+".pdf"
                 pdf.output(pdf_file)
-                st.success("PDF generated successfully! Click below to download.")
-                st.markdown(f"[Download PDF](data:application/pdf;base64,{pdf_file})")
+                st.success("PDF generated successfully!")
+                # Display the generated PDF using st.pdfviewer
+                pdf_bytes = open(pdf_file, 'rb').read()
+                st.pdfviewer(pdf_bytes)
+
 
 
                 

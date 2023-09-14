@@ -203,7 +203,7 @@ if file is not None:
                         pdf_display = f"""<iframe src="data:application/pdf;base64,\
                         {base64_pdf}" width="700" height="200" type="application/pdf"></iframe>"""
                         st.markdown(pdf_display, unsafe_allow_html=True)
-                st.markdown(f"[Download PDF](data:application/pdf;base64,\{base64_pdf})")
+                st.markdown(f"[Download PDF](data:application/pdf;base64,/{base64_pdf})")
 
                 #base64_pdf = base64.b64encode(pdf_path.read_bytes()).decode("utf-8")
                 #pdf_display = f"""

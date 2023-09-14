@@ -8,6 +8,8 @@ import requests
 from time import sleep
 from fpdf import FPDF 
 import datetime
+import base64
+from pathlib import Path
 
 
 st.set_page_config(
@@ -189,10 +191,13 @@ if file is not None:
                 pdf_file = yyyymmddhhmmss+".pdf"
                 pdf.output(pdf_file)
                 st.success("PDF generated successfully!")
-                # Display the generated PDF using st.pdfviewer
-                pdf_bytes = open(pdf_file, 'rb').read()
-                # Display the generated PDF using an iframe
-                st.markdown(f'<iframe src="data:application/pdf;base64,{pdf_bytes}" width="100%" height="500px"></iframe>', unsafe_allow_html=True)
+                pdf_path = Path("pdf_file")
+                base64_pdf = base64.b64encode(pdf_path.read_bytes()).decode("utf-8")
+                pdf_display = f"""
+                                <iframe src="data:application/pdf;base64,{base64_pdf}" width="800px" height="2100px" type="application/pdf"></iframe>
+                              """
+                st.markdown(pdf_display, unsafe_allow_html=True)
+
 
 
 

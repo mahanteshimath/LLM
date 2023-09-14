@@ -194,7 +194,7 @@ if file is not None:
                 pdf_path = Path(pdf_file)
                 st.markdown(pdf_path)
                 st.markdown(pdf_file)
-                st.markdown(f"[Download PDF]({pdf_path}/{pdf_file})")
+                st.markdown(f"[Download PDF]({pdf_path}})")
 
                 #base64_pdf = base64.b64encode(pdf_path.read_bytes()).decode("utf-8")
                 #pdf_display = f"""

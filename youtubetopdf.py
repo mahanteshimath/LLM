@@ -182,43 +182,15 @@ if file is not None:
                 results = get_analysis_results(polling_endpoint)
 
                 summary = results.json()['text']
-                st.write(summary)
-                pdf = FPDF()
-                pdf.add_page()
-                pdf.set_font("Arial", size=12)
-                paragraphs = summary.split('\n')
-                for paragraph in paragraphs:
-                    pdf.multi_cell(0, 10, paragraph)
-                now = datetime.datetime.now()
-
-                yyyymmddhhmmss = now.strftime('%Y%m%d%H%M%S')
-                pdf_file = yyyymmddhhmmss+".pdf"
-                pdf.output(pdf_file)
-                st.success("PDF generated successfully!")
-                pdf_path = Path(pdf_file)
-                st.markdown("If you want to download right click and save as")
-                #for pdf_file in pdf_file:
-                with open(pdf_path, "rb") as f:
-                        base64_pdf = base64.b64encode(f.read()).decode("utf-8")
-                        pdf_display = f"""<iframe src="data:application/pdf;base64,\
-                        {base64_pdf}" width="700" height="200" type="application/pdf"></iframe>"""
-                        st.markdown(pdf_display, unsafe_allow_html=True)
-                st.markdown(f"[Download PDF](data:application/pdf;base64/{base64_pdf})")
-
-                st.write("Summary Text:")
+                bullet_points = results.json()['summary']
+                st.markdown("Complete transcription  of youtube video")
+                st.markdown("If you want to download as .pdf select below content and ctrl+P ")
                 st.markdown(
-                f'<iframe srcdoc="{summary}" width="100%" height="300px"></iframe>',
-                unsafe_allow_html=True
-                )
-                st.write("Click below to print the summary:")
-                st.button("Print", key="print_button", on_click="window.print();")
-
-
-                #base64_pdf = base64.b64encode(pdf_path.read_bytes()).decode("utf-8")
-                #pdf_display = f"""
-                #                <iframe src="data:application/pdf;base64,{base64_pdf}" width="800px" height="2100px" type="application/pdf"></iframe>
-                #              """
-                #st.markdown(pdf_display, unsafe_allow_html=True)
+                    f'<iframe srcdoc="{summary}" width="100%" height="300px"></iframe>',
+                    unsafe_allow_html=True
+                    )
+                st.header("Video summary ")
+                st.write(bullet_points)
 
 
 

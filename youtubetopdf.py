@@ -191,7 +191,8 @@ if file is not None:
                 st.success("PDF generated successfully!")
                 # Display the generated PDF using st.pdfviewer
                 pdf_bytes = open(pdf_file, 'rb').read()
-                st.pdfviewer(pdf_bytes)
+                # Display the generated PDF using an iframe
+                st.markdown(f'<iframe src="data:application/pdf;base64,{pdf_bytes}" width="100%" height="500px"></iframe>', unsafe_allow_html=True)
 
 
 

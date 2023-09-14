@@ -134,7 +134,10 @@ def get_analysis_results(polling_endpoint):
             return False
             break
 
-st.title("YouTube Video to PDF converter")
+st.title("Extract YouTube Video content to PDF or TXT")
+#link to  YouTube channel
+st.markdown(" 👉 [🎥Visit my YouTube channel for more details](https://bit.ly/atozaboutdata)")
+
 file = st.text_area("Input url separated by ; then press ctrl+enter",height=100)
 urls_list=[q.strip() for q in file.split(';') if q.strip()]
 if file is not None:
